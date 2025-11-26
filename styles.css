@@ -1,222 +1,292 @@
-/* Style général */
+:root {
+  --bg: #050612;
+  --bg-card: #101524;
+  --bg-card-soft: #141a2b;
+  --accent: #ffc800;
+  --accent-soft: #ffda52;
+  --text-main: #ffffff;
+  --text-muted: #c7c7d9;
+  --danger: #ff4b5c;
+  --success: #27c86f;
+  --border-soft: #252a3b;
+  --nav-bg: #060815;
+}
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
 }
 
 body {
-  background-color: #050614;
-  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   display: flex;
   justify-content: center;
 }
 
 .app {
   width: 100%;
-  max-width: 450px;
+  max-width: 480px;
   min-height: 100vh;
-  background-color: #050614;
-  padding-bottom: 80px;
-}
-
-/* HEADER */
-.header {
+  background: var(--bg);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 16px;
+  flex-direction: column;
 }
 
-.header-left {
+/* Top bar */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 8px;
+}
+
+.logo-area {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  object-fit: cover;
+.logo-area img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
 }
 
-.app-name {
-  font-size: 16px;
+.agency-name {
   font-weight: 700;
-  color: #ffcc33;
+  font-size: 16px;
 }
 
-.match {
-  font-size: 12px;
-  color: #cccccc;
-}
-
-.header-right {
+.top-right {
   display: flex;
-  align-items: center;
   gap: 8px;
 }
 
-.coin-badge,
-.xp-badge {
-  background: #111325;
-  border-radius: 12px;
-  padding: 6px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #ffcc33;
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #151a27;
+  font-size: 11px;
 }
 
-/* BANNIÈRE */
+.chip span.icon {
+  font-size: 14px;
+}
+
+/* Banner */
+
 .banner {
-  margin: 0 16px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #f7d25a, #fca311);
-  color: #1b1b1b;
+  margin: 0 16px 12px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #ffb300, #ffe46b);
+  color: #151515;
   font-size: 13px;
   font-weight: 600;
 }
 
-/* SECTIONS */
+/* Main content */
+
+.main {
+  flex: 1;
+  padding: 0 16px 76px; /* place pour la barre de navigation */
+}
+
+/* Section titres */
+
 .section-title {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 10px 0 8px;
 }
 
-/* STATS */
-.stats-section {
-  padding: 18px 16px 8px;
+/* Statistiques */
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
-.btn-tiktok {
+.stat-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 8px 6px;
+  text-align: center;
+  border: 1px solid var(--border-soft);
+}
+
+.stat-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.stat-unit {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Bouton principal */
+
+.btn-primary {
+  display: block;
   width: 100%;
-  margin-top: 8px;
-  padding: 10px 12px;
+  margin: 10px 0 14px;
+  padding: 10px 14px;
   border-radius: 999px;
   border: none;
   font-size: 13px;
   font-weight: 600;
-  background-color: #1dd05d;
-  color: #041013;
+  background: var(--success);
+  color: #02120a;
+  text-align: center;
+  text-decoration: none;
 }
 
-.stats-cards {
+/* Cartes de quêtes */
+
+.quest-list {
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  margin-top: 14px;
-}
-
-.stat-card {
-  flex: 1;
-  background-color: #111325;
-  border-radius: 12px;
-  padding: 10px;
-}
-
-.stat-label {
-  font-size: 11px;
-  color: #cccccc;
-}
-
-.stat-value {
-  display: block;
-  margin-top: 4px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffcc33;
-}
-
-.next-step {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #cccccc;
-}
-
-/* QUÊTES */
-.quests-section {
-  padding: 10px 16px 16px;
+  margin-bottom: 16px;
 }
 
 .quest-card {
-  background-color: #111325;
-  border-radius: 14px;
+  background: var(--bg-card-soft);
+  border-radius: 16px;
   padding: 12px 12px 10px;
-  margin-top: 10px;
+  border: 1px solid var(--border-soft);
 }
 
 .quest-header {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
   align-items: center;
+  margin-bottom: 4px;
 }
 
 .quest-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
 }
 
-.quest-tag {
+.quest-badge {
   font-size: 11px;
-  padding: 2px 8px;
+  padding: 4px 8px;
   border-radius: 999px;
-  background-color: #252849;
-  color: #ffcc33;
+  background: #1e2233;
+  color: var(--accent-soft);
 }
 
-.quest-text {
+.quest-description {
   font-size: 12px;
-  margin-top: 6px;
-  color: #e0e0e0;
+  color: var(--text-muted);
+  margin-bottom: 6px;
 }
 
 .quest-footer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 6px;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--accent-soft);
 }
 
-.quest-reward {
-  font-size: 12px;
-  font-weight: 600;
-  color: #ffcc33;
+/* Bas de page texte */
+
+.small-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
 }
 
-/* NAVIGATION BAS */
+/* Navigation du bas */
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
-  max-width: 450px;
-  margin: 0 auto;
-  background-color: #050614;
-  border-top: 1px solid #26293f;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: var(--nav-bg);
+  border-top: 1px solid var(--border-soft);
   display: flex;
   justify-content: space-around;
-  padding: 6px 0 10px;
+  padding: 6px 0 4px;
+  z-index: 10;
 }
 
 .nav-item {
-  background: none;
-  border: none;
-  color: #b3b3b3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 1;
+  text-align: center;
   font-size: 11px;
-  gap: 2px;
+  color: var(--text-muted);
+  text-decoration: none;
 }
 
-.nav-item .nav-icon {
+.nav-item span.icon {
+  display: block;
   font-size: 18px;
 }
 
 .nav-item.active {
-  color: #ffcc33;
+  color: var(--accent);
+}
+
+/* Titres de pages internes */
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.simple-card {
+  background: var(--bg-card-soft);
+  border-radius: 16px;
+  padding: 12px;
+  border: 1px solid var(--border-soft);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.simple-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.simple-list-item {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 10px 10px;
+  border: 1px solid var(--border-soft);
+  font-size: 13px;
+}
+
+.simple-list-item-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.simple-list-item-sub {
+  font-size: 12px;
+  color: var(--text-muted);
 }
